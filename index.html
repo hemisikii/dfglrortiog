@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛЮБИМКАМ ОТ НАТАЛЕЕ</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #ffe4e1;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px;
+            background-color: #ffcccb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.5s;
+        }
+
+            button:hover {
+                background-color: #ffb6c1;
+            }
+
+        #image {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="text">ТЫ БУДЕШЬ МОИМ VENOM?</div>
+    <button id="yesButton">Да</button>
+    <button id="noButton">Нет</button>
+    <div id="newText" style="display:none;"></div>
+    <img id="image" src="https://avatars.mds.yandex.net/i?id=0aa4a2d4990248b34889a01c33557e166775ccf1-4238413-images-thumbs&n=13.jpg" alt="Фотография">
+    <script>
+        let clickCount = 0;
+        document.getElementById('noButton').onclick = function () {
+            clickCount++;
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            this.style.position = 'absolute';
+            this.style.left = x + 'px';
+            this.style.top = y + 'px';
+            if (clickCount >= 10) {
+                this.style.display = 'none';
+            }
+        };
+        document.getElementById('yesButton').onclick = function () {
+            document.getElementById('image').style.display = 'block';
+            document.getElementById('newText').innerText = "УРАРВВРАВ ЛЮ ТЯ <3";
+            document.getElementById('newText').style.display = 'block';
+            document.getElementById('text').style.display = 'none';
+            this.style.display = 'none';
+            document.getElementById('noButton').style.display = 'none'; // Эта строка добавлена
+        };
+    </script>
+</body>
+</html>
